@@ -73,7 +73,6 @@
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   color: #fafafa;
-
 }
 
 .toggle .labels::after {
@@ -114,4 +113,28 @@
 .toggle input:checked~.labels::before {
   opacity: 1;
   transform: translateX(calc(var(--width) - var(--height)));
+}
+
+@media all and (max-width: 425px) {
+  .toggle {
+    --width: 55px;
+    --height: calc(var(--width) /2.8);
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--height);
+  }
+
+  .toggle .labels {
+    top: 1px;
+    left: 5px;
+    font-size: 13px;
+  }
+
+  .toggle .labels::after {
+    right: 10px;
+  }
+
+  .toggle .labels::before {
+    left: calc(var(--height) - var(--width));
+  }
 }
