@@ -1,10 +1,7 @@
 h1 {
   cursor: pointer;
-}
-
-.navbar h1 {
   position: absolute;
-  top: 50%;
+  top: 35px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -41,7 +38,10 @@ h1 {
   cursor: pointer;
 }
 
-@media all and (max-width: 425px) {
+@media all and (max-width: 430px) {
+  h1 {
+      top: 25px;
+  }
   .navbar-brand {
     font-size: 20px;
   }

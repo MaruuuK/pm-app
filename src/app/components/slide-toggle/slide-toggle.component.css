@@ -115,7 +115,7 @@
   transform: translateX(calc(var(--width) - var(--height)));
 }
 
-@media all and (max-width: 425px) {
+@media all and (max-width: 430px) {
   .toggle {
     --width: 55px;
     --height: calc(var(--width) /2.8);
