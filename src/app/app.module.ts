@@ -10,10 +10,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    WelcomePageComponent,
+    SlideToggleComponent,
   ],
 
   imports: [
