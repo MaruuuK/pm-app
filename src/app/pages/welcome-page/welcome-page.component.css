@@ -3,6 +3,9 @@ h3 {
   font-family: 'georgia bold', sans-serif;
 }
 
+.main-content{
+  margin-top: 5.625rem;
+}
 .banner-header {
   font-family: 'georgia bold', sans-serif;
   color: var(--cyanBlue);
