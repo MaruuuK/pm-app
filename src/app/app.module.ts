@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.com
     HeaderComponent,
     WelcomePageComponent,
     SlideToggleComponent,
+    FooterComponent,
   ],
 
   imports: [
