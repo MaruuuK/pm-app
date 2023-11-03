@@ -10,10 +10,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +28,16 @@ import { FooterComponent } from './components/footer/footer.component';
     WelcomePageComponent,
     SlideToggleComponent,
     FooterComponent,
+    LoginPageComponent,
+    SignupPageComponent,
+    LoginComponent,
+    SignupComponent,
+    LoadingSpinnerComponent,
   ],
 
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
