@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../shared/custom-validators';
-// import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'pm-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit  {
   public isSignup = false;
   public isLoading = false;
   public error: string | null = null;
 
   public signupForm!: FormGroup;
-  // constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.signupForm = new FormGroup(
@@ -39,29 +39,29 @@ export class SignupComponent implements OnInit {
   }
 
   onLogin() {
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
   onSubmit(signupForm: FormGroup) {
     if (!signupForm.valid) {
       return;
     }
-    //   this.error = '';
-    //   const name = signupForm.value.name;
-    //   const login = signupForm.value.login;
-    //   const password = signupForm.value.password;
+      this.error = '';
+      const name = signupForm.value.name;
+      const login = signupForm.value.login;
+      const password = signupForm.value.password;
 
-    //   this.isLoading = true;
-    //   this.authService.signup(name, login, password).subscribe({
-    //     next: () => {
-    //       this.isLoading = false;
-    //       this.isSignup = true;
-    //     },
-    //     error: (errorMessage) => {
-    //       this.error = errorMessage;
-    //       this.isLoading = false;
-    //     },
-    //   });
-    //   this.signupForm.reset();
+      this.isLoading = true;
+      this.authService.signup(name, login, password).subscribe({
+        next: () => {
+          this.isLoading = false;
+          this.isSignup = true;
+        },
+        error: (errorMessage) => {
+          this.error = errorMessage;
+          this.isLoading = false;
+        },
+      });
+      this.signupForm.reset();
   }
 }
