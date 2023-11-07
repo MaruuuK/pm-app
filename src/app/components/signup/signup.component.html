@@ -17,10 +17,7 @@
         </div>
         <h2 class="text-center mb-4 text-primary signup-login-header" *ngIf="!isSignup">{{ 'signupPage.signupHeader' |
           translate}}</h2>
-        <div class="alert alert-danger text-center alert-dismissible fade show" *ngIf="error">
-          <p class="m-0" translate>{{error}}</p>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <pm-alert (alertClosed)="onAlertClosed()" [errorAlert]="error"></pm-alert>
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)" *ngIf="!isSignup">
           <div class="mb-3">
             <label for="name-field" class="form-label">{{ 'signupPage.nameField' | translate}}</label>

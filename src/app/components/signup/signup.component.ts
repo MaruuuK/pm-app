@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent implements OnInit  {
+export class SignupComponent implements OnInit {
   public isSignup = false;
   public isLoading = false;
   public error: string | null = null;
@@ -46,22 +46,26 @@ export class SignupComponent implements OnInit  {
     if (!signupForm.valid) {
       return;
     }
-      this.error = '';
-      const name = signupForm.value.name;
-      const login = signupForm.value.login;
-      const password = signupForm.value.password;
+    this.error = '';
+    const name = signupForm.value.name;
+    const login = signupForm.value.login;
+    const password = signupForm.value.password;
 
-      this.isLoading = true;
-      this.authService.signup(name, login, password).subscribe({
-        next: () => {
-          this.isLoading = false;
-          this.isSignup = true;
-        },
-        error: (errorMessage) => {
-          this.error = errorMessage;
-          this.isLoading = false;
-        },
-      });
-      this.signupForm.reset();
+    this.isLoading = true;
+    this.authService.signup(name, login, password).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.isSignup = true;
+      },
+      error: (errorMessage) => {
+        this.error = errorMessage;
+        this.isLoading = false;
+      },
+    });
+    this.signupForm.reset();
+  }
+
+  onAlertClosed() {
+    this.error = null;
   }
 }

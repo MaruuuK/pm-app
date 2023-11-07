@@ -10,7 +10,7 @@
       (click)="isCollapsed = ! isCollapsed" [attr.aria-expanded]="!isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor01" #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+    <div class="collapse navbar-collapse" id="navbarColor01" [(ngbCollapse)]="!isCollapsed">
       <ul class="navbar-nav me-auto">
         <li class="nav-item p-2" *ngIf="!isAuthenticated">
           <a class="nav-link" routerLink="/login"><fa-icon [icon]="faArrowRightToBracket"></fa-icon>

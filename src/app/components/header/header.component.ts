@@ -1,7 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {
@@ -13,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { Subscription } from 'rxjs';
-// import { AuthService } from 'src/app/welcome-page/auth/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 // import { CreateBoardsService } from '../main-page/create-boards/createBoards.service';
 
 @Component({
@@ -29,7 +26,7 @@ export class HeaderComponent {
   public isCollapsed = false;
 
   constructor(
-    // private authService: AuthService,
+    private authService: AuthService,
     private router: Router // private createBoardsService: CreateBoardsService
   ) {}
 
@@ -39,11 +36,11 @@ export class HeaderComponent {
   public faPenToSquare: IconDefinition = faPenToSquare;
   public faPlus: IconDefinition = faPlus;
 
-  // ngOnInit(): void {
-  //   this.userSub = this.authService.user.subscribe((user) => {
-  //     this.isAuthenticated = !user ? false : true;
-  //   });
-  // }
+  ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.isAuthenticated = !user ? false : true;
+    });
+  }
 
   onRedirectPage() {
     if (this.isAuthenticated) {
@@ -54,8 +51,8 @@ export class HeaderComponent {
   }
 
   onLogout(e: Event) {
-    // this.authService.logout();
-    // e.preventDefault();
+    this.authService.logout();
+    e.preventDefault();
   }
 
   onCreateBoard() {
@@ -63,7 +60,7 @@ export class HeaderComponent {
     // this.createBoardsService.openModalCreateBoard();
   }
 
-  // ngOnDestroy() {
-  //   this.userSub.unsubscribe();
-  // }
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
+  }
 }
