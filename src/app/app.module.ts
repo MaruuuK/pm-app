@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxTranslateModule } from './translate/translate.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +20,9 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { AlertComponent } from './components/alert/alert.component';
+
+import { AuthInterceptorService } from './services/auth-interceptor.service'
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     LoginComponent,
     SignupComponent,
     LoadingSpinnerComponent,
+    AlertComponent,
   ],
 
   imports: [
@@ -48,11 +52,11 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     DragDropModule,
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   exports: [TranslateModule],

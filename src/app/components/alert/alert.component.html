@@ -1,0 +1,4 @@
+<div class="alert alert-danger text-center alert-dismissible fade show" *ngIf="errorAlert" role="alert">
+  <p class="m-0" translate>{{ errorAlert }}</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="onCloseAlert()"></button>
+</div>
