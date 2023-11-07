@@ -22,7 +22,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './components/alert/alert.component';
 
-import { AuthInterceptorService } from './services/auth-interceptor.service'
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { NotFoundComponent } from './pages/not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service'
     SignupComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    NotFoundComponent,
   ],
 
   imports: [
