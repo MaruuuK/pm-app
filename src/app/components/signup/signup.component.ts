@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../shared/custom-validators';
 import { Router } from '@angular/router';
@@ -38,10 +38,6 @@ export class SignupComponent implements OnInit {
     );
   }
 
-  onLogin() {
-    this.router.navigate(['/login']);
-  }
-
   onSubmit(signupForm: FormGroup) {
     if (!signupForm.valid) {
       return;
@@ -67,5 +63,9 @@ export class SignupComponent implements OnInit {
 
   onAlertClosed() {
     this.error = null;
+  }
+
+  onLogin() {
+    this.router.navigate(['/login']);
   }
 }

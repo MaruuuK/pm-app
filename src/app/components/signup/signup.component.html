@@ -6,15 +6,7 @@
       </div>
       <div class="col-10 col-lg-5 col-md-10 col-sm-8 p-3 p-sm-5 border rounded-5 border-primary bg-white m-auto "
         *ngIf="!isLoading">
-        <div *ngIf="isSignup">
-          <div class="alert alert-success">
-            <p class="m-0">{{ 'signupPage.successful' | translate}}</p>
-          </div>
-          <div class="m-auto text-center">
-            <button class="btn btn-primary btn-lg" (click)="onLogin()">{{ 'signupPage.loginHeader' |
-              translate}}</button>
-          </div>
-        </div>
+        <pm-alert (loginButton)="onLogin()" [isSignup]="isSignup"></pm-alert>
         <h2 class="text-center mb-4 text-primary signup-login-header" *ngIf="!isSignup">{{ 'signupPage.signupHeader' |
           translate}}</h2>
         <pm-alert (alertClosed)="onAlertClosed()" [errorAlert]="error"></pm-alert>
