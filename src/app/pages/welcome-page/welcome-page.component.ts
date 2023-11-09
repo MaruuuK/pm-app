@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'pm-welcome-page',
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  styleUrls: ['./welcome-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WelcomePageComponent {
-
-}
+export class WelcomePageComponent {}

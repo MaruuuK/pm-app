@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'pm-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginPageComponent {
-
-}
+export class LoginPageComponent {}

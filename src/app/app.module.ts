@@ -8,6 +8,7 @@ import { NgxTranslateModule } from './translate/translate.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,9 +22,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './components/alert/alert.component';
-
-import { AuthInterceptorService } from './services/auth-interceptor.service';
-import { NotFoundComponent } from './pages/not-found/not-found.component'
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MainBoardsPageComponent } from './pages/main-boards-page/main-boards-page.component';
+import { MainBoardsComponent } from './components/main-boards/main-boards.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component'
     LoadingSpinnerComponent,
     AlertComponent,
     NotFoundComponent,
+    MainBoardsPageComponent,
+    MainBoardsComponent,
   ],
 
   imports: [

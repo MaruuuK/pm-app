@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../shared/custom-validators';
 import { Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'pm-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignupComponent implements OnInit {
   public isSignup = false;
@@ -15,7 +16,11 @@ export class SignupComponent implements OnInit {
   public error: string | null = null;
 
   public signupForm!: FormGroup;
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = new FormGroup(
@@ -52,10 +57,12 @@ export class SignupComponent implements OnInit {
       next: () => {
         this.isLoading = false;
         this.isSignup = true;
+        this.cdr.markForCheck();
       },
       error: (errorMessage) => {
         this.error = errorMessage;
         this.isLoading = false;
+        this.cdr.markForCheck();
       },
     });
     this.signupForm.reset();

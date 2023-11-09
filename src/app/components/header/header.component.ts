@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 import {
@@ -27,7 +31,8 @@ export class HeaderComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router // private createBoardsService: CreateBoardsService
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   //fontawesome
@@ -38,7 +43,8 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
-      this.isAuthenticated = !user ? false : true;
+      this.isAuthenticated = !!user;
+      this.cdr.markForCheck();
     });
   }
 
