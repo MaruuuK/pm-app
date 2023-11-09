@@ -8,18 +8,22 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MainBoardsPageComponent } from './pages/main-boards-page/main-boards-page.component';
 
-
 const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    children: [
-      { path: '', component: WelcomePageComponent },
-      { path: 'login', component: LoginPageComponent },
-      { path: 'signup', component: SignupPageComponent },
-    ],
+    component: WelcomePageComponent,
   },
-
+  {
+    path: 'login',
+    canActivate: [AuthGuard],
+    component: LoginPageComponent,
+  },
+  {
+    path: 'signup',
+    canActivate: [AuthGuard],
+    component: SignupPageComponent,
+  },
   {
     path: 'main',
     component: MainBoardsPageComponent,

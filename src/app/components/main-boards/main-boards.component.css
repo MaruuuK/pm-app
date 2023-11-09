@@ -1,4 +1,3 @@
-p {
-  margin-top: 150px;
-  font-size: 30px;
+.board-card {
+  cursor: pointer;
 }
